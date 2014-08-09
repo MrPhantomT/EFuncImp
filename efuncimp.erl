@@ -70,8 +70,8 @@ quick_sort([Base | Other]) ->
 quick_sort(LeftArray) ++ [Base] ++ quick_sort(RightArray).
 quick_sort(Base, [Head | Tail], {LeftArray, RightArray}) ->
   case Base > Head of
-    true -> quick_sort(Base, Tail, {[Head] ++ LeftArray, RightArray});
-    false -> quick_sort(Base, Tail,  {LeftArray, [Head] ++ RightArray})
+    true -> quick_sort(Base, Tail, {[Head | LeftArray], RightArray});
+    false -> quick_sort(Base, Tail,  {LeftArray, [Head | RightArray]})
   end;
 quick_sort(_, [], Arrays) -> 
   Arrays.
